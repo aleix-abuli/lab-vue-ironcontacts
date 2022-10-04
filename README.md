@@ -17,7 +17,7 @@ Your task is to create a contact management app for the producer using Vue.js.
   ```bash
   $ cd lab-vue-ironcontacts
   $ npm install
-  $ npm start
+  $ npm run dev
   ```
 
 
@@ -39,15 +39,16 @@ Your task is to create a contact management app for the producer using Vue.js.
 Clean the `App.js` component so that it has the following structure:
 
 ```js
-// src/App.js
-import "./App.css";
-
-function App() {
-  <template>
-  <div id="app"></div>
+// src/App.vue
+<template>
 </template>
-}
-export default App;
+
+<script setup>
+</script>
+
+<style>
+</style>
+
 ```
 
 ## Instructions
@@ -56,11 +57,11 @@ export default App;
 
 Let's take a look at the starter code.
 
-Inside the `src` folder we have a `contacts.json` file containing the producer's contacts. Import the `contacts.json` file to `App.vue`. Once done, create a ref variable named `contacts` and store an **array containing the first 5 contacts**.
+Inside the `src` folder we have a `contacts.json` file containing the producer's contacts. Import the `contacts.json` file to `App.vue`. Once done, create a ref variable named `contacts` that stores an **array containing the first 5 contacts**.
 
 Display that array of 5 contacts as a list in a `<table>` and display the `picture`, `name`, and `popularity` of each contact.
 
-For now, let's render the content in `App.vue`. This being said, don't proceed to create a dedicated component for the contact list. The reason will become a bit clearer later when we add the delete button next to each contact. You are probably not yet familiar with the concept of "lifting state up" and passing callbacks as props. For this reason, it is better to render everything in one component for the moment.
+For now, let's render the content in `App.vue`. This being said, don't proceed to create a dedicated component for the contact list. For now, let's just render everything in one component.
 
 Let's proceed.
 
@@ -114,7 +115,7 @@ At the end of this iteration, your website will probably look like this:
 
 The producer asked you to add two new buttons to help them sort their contacts. When you click on one of the buttons, it should **sort the table by `name`** (alphabetically), and when you click the other, it should **sort by `popularity`** (highest first).
 
-Once you have sorted the array, remember to update the state variable holding the contacts.
+Once you have sorted the array, remember to update the ref variable holding the contacts.
 
 This is what you should have at the end of this iteration:
 
@@ -129,7 +130,7 @@ This is what you should have at the end of this iteration:
 
 The producer also would like to remove some of their contacts. Implement a _Delete_ button on each row of your `<table>` that will let the user remove the contact they clicked.
 
-When they click, you should get the `id` of that actor and use it to remove the contact from the array. Remember to update the state variable holding the contacts after you remove the contact!
+When they click, you should get the `id` of that actor and use it to remove the contact from the array. Remember to update the ref variable holding the contacts after you remove the contact!
 
 When done, your app should look like this (after playing a little bit with the _Delete_ button):
 
